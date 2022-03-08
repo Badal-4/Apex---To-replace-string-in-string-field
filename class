@@ -1,0 +1,12 @@
+List<Account> accList = [Select RoleName__c from Account where RoleName__c LIKE : '%App%'];
+
+for(Account acc  : accList)
+{
+    
+   String rolename = acc.RoleName__c;
+   
+      String rln = rolename.replace(',App','');
+    acc.RoleName__c = rln;
+       update acc;
+   
+}
